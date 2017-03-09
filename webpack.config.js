@@ -1,10 +1,22 @@
+const webpack = require('webpack')
+const path = require('path')
+
 module.exports = {
-    context: __dirname + "/src",
-
-    entry: "./app.js",
-
-    output: {
-        filename: "app.js",
-        path: __dirname + "/dist"
-    }
-};
+  devtool: 'source-map',
+  entry: {
+    'app': [
+      'babel-polyfill',
+      'react-hot-loader/patch',
+      './src/app'
+    ]
+  },
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: '[name].js'
+  },
+  module: {
+    rules: [
+      { test:/\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+    ]
+  }
+}
