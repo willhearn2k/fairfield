@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Home from './views/home/index.js';
+import Home from './views/home/index.jsx';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
@@ -17,18 +17,5 @@ const render = Component => {
 render(Home);
 
 if (module.hot) {
-  module.hot.accept('./views/home/index.js', () => { render(Home) })
+  module.hot.accept('./views/home/index.jsx', () => { render(Home) })
 }
-
-/*const render = Compoenent => {
-  ReactDOM.render(
-  <Router history={ browserHistory }>
-    <Route path='/' component={ App }>
-      <IndexRoute component={ Home } />
-      <Route path='about' component={ About } />
-    </Route>
-  </Router>,
-  document.getElementById('app')
-)
-}*/
-
