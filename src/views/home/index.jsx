@@ -6,7 +6,8 @@ export default class Home extends Component {
     
     return (
       <div >
-        The Home class extended to this yes it is
+        The Home class extended to this yes
+
       </div>
     );
   }
