@@ -1,32 +1,32 @@
 const webpack = require('webpack')
 const path = require('path')
+const TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 module.exports = {
+	entry: path.join(__dirname, '/src/app.js'),
 	devtool: 'eval',
-  	entry: {
-    	'app': [
-      	'babel-polyfill',
-      	'./src/app'
-    	]
-  	},
+
   	devServer: {   // Server Configuration options
-    	//contentBase: 'src/www', // Relative directory for base of server
-    	hot: true, // Live-reload
-    	inline: true,
-    	port: 8000, // Port Number
+		contentBase: 'src/www',
+    	port: 8001, // Port Number
     	host: 'localhost', // Change to '0.0.0.0' for external facing server
   	},
   	output: {
     	path: path.resolve(__dirname, './dist'),
-    	filename: '[name].js',
+    	filename: 'app.js',
   	},
+	plugins: [
+		new TransferWebpackPlugin([
+			{from: 'www'},
+		], path.resolve(__dirname, 'src')),	
+	],
   	module: {
-    	loaders: [
+    	rules: [
       		{
-        		test: /\.jsx?$/, // All .js files
-        		loaders: ['babel-loader'],
-        		exclude: /node_modules/,
-     		},
-    	],
+				  test: /\.(js|jsx)$/, 
+				  use: ['babel-loader'],
+				  exclude: /node_modules/,
+			},
+		],
   	}
 }

@@ -4,7 +4,7 @@
   "description": "fairfield",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack-dev-server.config.js --progress --open --hot --inline --colors",
+    "dev": "webpack-dev-server --config webpack-dev-server.config.js --progress --colors",
     "build": "webpack --config webpack-production.config.js --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,9 +13,9 @@
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-latest": "^6.22.0",
+    "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
     "transfer-webpack-plugin": "^0.1.4",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
