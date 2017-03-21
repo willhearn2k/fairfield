@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './views/home/index.jsx';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Router, Route, hashHistory } from 'react-router'
+import Chrome from './views/chrome/chrome.jsx';
+import View1 from './views/view1.jsx';
+import View2 from './views/view2.jsx';
 
-// Touch Tap
-injectTapEventPlugin();
-
-ReactDOM.render(<Home />, document.getElementById('app'));
+ReactDOM.render((
+  <Router history={hashHistory}>
+    <Route path="/" component={Chrome}>
+        <Route path="/view1" component={View1}/>
+        <Route path="/view2" component={View2}/>
+    </Route>
+  </Router>
+), document.getElementById('app'))
